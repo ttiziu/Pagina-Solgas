@@ -1,6 +1,6 @@
 # 🚀 Sitio Web Solgas - Distribuidor Autorizado de Gas
 
-![Banner del Proyecto](./images/Captura1.png) *(Reemplaza con una imagen real del proyecto)*
+![Banner del Proyecto](./images/Captura1.png)
 
 **Sitio web estático** para un distribuidor autorizado de balones de gas en Lima, Perú. Diseñado con enfoque en usabilidad, animaciones interactivas y diseño responsivo.
 
