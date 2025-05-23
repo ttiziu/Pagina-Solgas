@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Dillan";
+    src: url(dillan/Fontspring-DEMO-dillan-ultralight.otf) format("opentype");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Dillan";
+    src: url(dillan/Fontspring-DEMO-dillan-regular.otf) format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Dillan";
+    src: url(dillan/Fontspring-DEMO-dillan-bold.otf) format("opentype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Dillan";
+    src: url(dillan/Fontspring-DEMO-dillan-extrabold.otf) format("opentype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Dillan";
+    src: url(dillan/Fontspring-DEMO-dillan-extrabolditalic.otf) format("opentype");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "Dillan";
+    src: url(dillan/Fontspring-DEMO-dillan-black.otf) format("opentype");
+    font-weight: 900;
+}
+

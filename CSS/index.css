@@ -1,0 +1,606 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Ajusta el video de fondo para que ocupe toda la página */
+.video-background {
+    position: fixed; /* Cambia a fixed para que cubra toda la página */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca el video detrás de todo */
+    overflow: hidden;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .video-background {
+        display: none; /* Ocultar el video en móviles */
+    }
+    .hero {
+        background: url('../images/ama\ de\ casa.webp') no-repeat center center/cover;
+    }
+}
+
+/* Estilos para el contenido principal */
+body {
+    margin: 0;
+    padding: 0; 
+    font-family: 'Dillan', sans-serif;
+    color: white;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(to right, #050050, #ff5500);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s ease;
+}
+
+.banner-hidden {
+    top: -100px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 30px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.logo h1 {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-left: 20px; /* Movemos los enlaces hacia la izquierda */
+
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e8e8e8;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.nav-links a:hover {
+    color: #0b00a1;
+    transform: scale(1.1);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .banner {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Sección Hero */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    z-index: 1; /* Asegura que el contenido esté sobre el video */
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    border-radius: 10px;
+    z-index: 1; /* Asegura que el contenido esté sobre el video */
+}
+
+.hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #ff5500;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #e64a00;
+}
+
+/* Sección de imágenes (Marcas) */
+.image-gallery {
+    width: 100%;
+    padding: 40px 20px;
+    background: transparent; /* Fondo transparente */
+    text-align: center;
+    position: relative; /* Asegura que esté por encima del video */
+    z-index: 1; /* Coloca la sección por encima del video */
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* Reducimos el espacio entre los logos */
+    flex-wrap: wrap;    
+}
+
+.text-item h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    padding: 0px 300px;
+    color: white; /* Texto blanco para que sea visible sobre el video */
+}
+
+.gallery-item {
+    max-width: 125px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .text-item h2 {
+        padding: 0px 20px; /* Ajustamos el padding para móviles */
+        font-size: 1.5rem; /* Reducimos el tamaño del título en móviles */
+    }
+
+    .gallery-container {
+        gap: 20px; /* Reducimos el espacio entre los logos en móviles */
+    }
+
+    .gallery-item {
+        max-width: 80px; /* Reducimos el tamaño de los logos en móviles */
+    }
+}
+
+/* Sección Nosotros */
+.about-us {
+    padding: 20px; /* Reducimos el padding */
+    background: #050050; /* Fondo oscuro */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+  
+.about-us::before,
+.about-us::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      #ff9aa2,
+      #f85f00,
+      #ff6600,
+      #e2f0cb,
+      #004763,
+      #2e008b,
+      #050064,
+      #ff9aa2
+    );
+    transform: translate(-50%, -50%);
+    animation: rotate 8s linear infinite;
+    filter: blur(50px); /* Efecto de brillo suave */
+    opacity: 0.8;
+    z-index: -1; /* Envía la animación al fondo */
+}
+  
+/* Capa secundaria para más profundidad */
+.about-us::after {
+    width: 180%;
+    height: 180%;
+    animation: rotate-reverse 10s linear infinite;
+    opacity: 0.6;
+}
+  
+/* Animaciones */
+@keyframes rotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+  
+@keyframes rotate-reverse {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+  
+
+.about-content {
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas grandes */
+    gap: 20px; /* Espacio entre elementos */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    border-radius: 20px;
+    text-align: left;
+}
+
+.about-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem; /* Tamaño más pequeño */
+    margin-bottom: 20px;
+    color: #e8e8e8;
+    grid-column: 1 / -1; /* Ocupa todas las columnas */
+    text-align: center;
+}
+
+.about-content h3 {
+    font-size: 1.3rem; /* Tamaño más pequeño */
+    margin-bottom: 10px;
+    color: #ff5500;
+}
+
+.about-content p {
+    font-size: 0.9rem; /* Tamaño más pequeño */
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #e8e8e8;
+}
+
+.about-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 0.9rem; /* Tamaño más pequeño */
+    line-height: 1.4;
+    color: #e8e8e8;
+}
+
+.about-content ul li {
+    margin-bottom: 8px;
+}
+
+/* Ajustamos los about-section */
+.about-section1,
+.about-section2,
+.about-section3,
+.about-section4,
+.about-section5,
+.about-section6 {
+    padding: 15px; /* Reducimos el padding interno */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+        gap: 10px; /* Menos espacio entre elementos */
+    }
+
+    .about-content h2 {
+        font-size: 1.6rem; /* Tamaño más pequeño en móviles */
+    }
+
+    .about-content h3 {
+        font-size: 1.1rem; /* Tamaño más pequeño en móviles */
+    }
+
+    .about-content p,
+    .about-content ul {
+        font-size: 0.8rem; /* Tamaño más pequeño en móviles */
+    }
+}
+
+/* Sección Servicios */
+.services {
+    background-color: #e8e8e8;
+    padding: 40px 90px; /* Añadimos padding para separar la sección */
+    text-align: center; /* Centramos el contenido */
+    /* Basic dimensions and centering */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Dark mode colors and gradient */
+    background: #8e8e8e; /* Fallback for browsers that don't support gradients */
+    background: linear-gradient(
+    135deg,
+    #050050 25%,
+    #ff5500 25%,
+    #ff5500 50%,
+    #050050 50%,
+    #050050 75%,
+    #ff5500 75%,
+    #ff5500
+    );
+    background-size: 40px 40px;
+
+    /* Animation */
+    animation: move 4s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+.service-content {
+    background-color: #050050;
+    padding: 20px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center; /* Centramos las tarjetas horizontalmente */
+    gap: 20px 150px ; /* Espacio entre las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en pantallas pequeñas */
+}
+
+.service-content h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem; /* Reducimos el tamaño del título */
+    margin-bottom: 20px; /* Reducimos el margen inferior */
+    color: #e8e8e8;
+    grid-column: 1 / -1; /* Ocupa todas las columnas */
+    text-align: center;
+}
+
+.service-content img{
+    border-radius: 10px;
+}
+
+.card {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    min-height: 254px;
+}
+
+.card {
+    position: relative;
+    background-color: #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadimos transición */
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: 200px;
+    height: 264px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #ff5500 0%, #050050 100%);
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #ff5500 0%, #050050 100%);
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+
+.heading {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.card p:not(.heading) {
+    font-size: 14px;
+}
+
+.card p:last-child {
+    color: #ff5500;
+    font-weight: 600;
+}
+
+.card:hover::after {
+    filter: blur(30px);
+}
+
+.card:hover::before {
+    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Efecto de levitación al hacer hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra al hacer hover */
+}   
+
+/* Sección Contactos */
+
+.contacts{
+    padding: 40px 20px; /* Reducimos el padding */
+    background: #e8e8e8;
+    text-align: left;
+}
+
+.contacts{
+    position: relative;
+    overflow: hidden; /* Evita que la animación se expanda fuera */
+    padding: 40px;
+    z-index: 1; /* Asegura que el contenido esté por encima */
+}
+
+.contacts::before,
+.contacts::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      #ff9aa2,
+      #f85f00,
+      #ff6600,
+      #e2f0cb,
+      #004763,
+      #2e008b,
+      #050064,
+      #ff9aa2
+    );
+    transform: translate(-50%, -50%);
+    animation: rotate 8s linear infinite;
+    filter: blur(50px); /* Efecto de brillo suave */
+    opacity: 0.8;
+    z-index: -1; /* Envía la animación al fondo */
+}
+  
+  /* Capa secundaria para más profundidad */
+.contacts::after {
+    width: 180%;
+    height: 180%;
+    animation: rotate-reverse 10s linear infinite;
+    opacity: 0.6;
+}
+  
+  /* Animaciones */
+@keyframes rotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+  
+@keyframes rotate-reverse {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+.contacts h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem; /* Reducimos el tamaño del título */
+    margin-bottom: 20px; /* Reducimos el margen inferior */
+    color: #e8e8e8;
+    grid-column: 1 / -1; /* Ocupa todas las columnas */
+    text-align: center;
+}
+        
