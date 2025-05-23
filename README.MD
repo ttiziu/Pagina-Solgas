@@ -4,7 +4,7 @@
 
 **Sitio web estático** para un distribuidor autorizado de balones de gas en Lima, Perú. Diseñado con enfoque en usabilidad, animaciones interactivas y diseño responsivo.
 
-🔗 [Demo en Vivo](https://tu-usuario.github.io/solgas-website) | 📂 [Repositorio](https://github.com/ttiziu/Pagina-Solgas)
+🔗 [Demo en Vivo](https://ttiziu.github.io/Pagina-Solgas/) | 📂 [Repositorio](https://github.com/ttiziu/Pagina-Solgas)
 
 ---
 
